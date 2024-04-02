@@ -12,12 +12,14 @@
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
-.todos-bg-container {
+.todos-bg-container
+{
   background-color: #f9fbfe;
   height: 100vh;
 }
 
-.todos-heading {
+.todos-heading
+{
   text-align: center;
   font-family: "Roboto";
   font-size: 46px;
@@ -26,46 +28,54 @@
   margin-bottom: 20px;
 }
 
-.create-task-heading {
+.create-task-heading 
+{
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 700;
 }
 
-.span{
+.span
+{
   font_family:"Roboto";
   font-size:15px;
   color: #4c63b6;
 }
 
-.create-task-heading-subpart {
+.create-task-heading-subpart 
+{
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 500;
 }
 
-.todo-items-heading {
+.todo-items-heading 
+{
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 700;
 }
 
-.todo-items-heading-subpart {
+.todo-items-heading-subpart
+{
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 500;
 }
 
-.todo-items-container {
+.todo-items-container 
+{
   margin: 0px;
   padding: 0px;
 }
 
-.todo-item-container {
+.todo-item-container 
+{
   margin-top: 15px;
 }
 
-.todo-user-input {
+.todo-user-input
+{
   background-color: white;
   width: 100%;
   border-style: solid;
@@ -76,7 +86,8 @@
   padding: 15px;
 }
 
-.button {
+.button 
+{
   color: white;
   background-color: #4c63b6;
   font-family: "Roboto";
@@ -91,7 +102,8 @@
   padding-left: 20px;
 }
 
-.label-container {
+.label-container
+{
   background-color: #e6f6ff;
   width: 100%;
   border-style: solid;
@@ -103,14 +115,16 @@
   border-radius: 4px;
 }
 
-.checkbox-input {
+.checkbox-input 
+{
   width: 20px;
   height: 20px;
   margin-top: 12px;
   margin-right: 12px;
 }
 
-.checkbox-label {
+.checkbox-label 
+{
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
@@ -123,16 +137,19 @@
   border-radius: 5px;
 }
 
-.delete-icon-container {
+.delete-icon-container 
+{
   text-align: right;
   width: 18%;
 }
 
-.delete-icon {
+.delete-icon 
+{
   padding: 15px;
 }
 
-.checked {
+.checked 
+{
   text-decoration: line-through;
 }
 </style>
@@ -161,30 +178,38 @@
 let todoItemsContainer = document.getElementById("todoItemsContainer");
 let addTodoButton = document.getElementById("addTodoButton");
 let saveTodoButton = document.getElementById("saveTodoButton");
-function getTodoListFromLocalStorage() {
+function getTodoListFromLocalStorage() 
+{
   let stringifiedTodoList = localStorage.getItem("todoList");
   let parsedTodoList = JSON.parse(stringifiedTodoList);
-  if (parsedTodoList === null) {
+  if (parsedTodoList === null) 
+  {
     return [];
-  } else {
+  } 
+  else
+  {
     return parsedTodoList;
   }
 }
 let todoList = getTodoListFromLocalStorage();
 let todosCount = todoList.length;
-saveTodoButton.onclick = function() {
+saveTodoButton.onclick = function()
+{
   localStorage.setItem("todoList", JSON.stringify(todoList));
 };
-function onAddTodo() {
+function onAddTodo() 
+{
   let userInputElement = document.getElementById("todoUserInput");
   let userInputValue = userInputElement.value;
-  if (userInputValue === "") {
+  if (userInputValue === "")
+  {
     alert("Enter Valid Text");
     return;
   }
   todosCount = todosCount + 1;
 
-  let newTodo = {
+  let newTodo = 
+  {
     text: userInputValue,
     uniqueNo: todosCount,
     isChecked: false
@@ -193,42 +218,56 @@ function onAddTodo() {
   createAndAppendTodo(newTodo);
   userInputElement.value = "";
 }
-addTodoButton.onclick = function() {
+addTodoButton.onclick = function()
+{
   onAddTodo();
 };
-function onTodoStatusChange(checkboxId, labelId, todoId) {
+function onTodoStatusChange(checkboxId, labelId, todoId) 
+{
   let checkboxElement = document.getElementById(checkboxId);
   let labelElement = document.getElementById(labelId);
   labelElement.classList.toggle("checked");
   let todoObjectIndex = todoList.findIndex(function(eachTodo) {
     let eachTodoId = "todo" + eachTodo.uniqueNo;
-    if (eachTodoId === todoId) {
+    if (eachTodoId === todoId)
+    {
       return true;
-    } else {
+    } 
+    else
+    {
       return false;
     }
   });
   let todoObject = todoList[todoObjectIndex];
-  if(todoObject.isChecked === true){
+  if(todoObject.isChecked === true)
+  {
     todoObject.isChecked = false;
-  } else {
+  } 
+  else
+  {
     todoObject.isChecked = true;
   }
 }
-function onDeleteTodo(todoId) {
+function onDeleteTodo(todoId)
+{
   let todoElement = document.getElementById(todoId);
   todoItemsContainer.removeChild(todoElement);
-  let deleteElementIndex = todoList.findIndex(function(eachTodo) {
+  let deleteElementIndex = todoList.findIndex(function(eachTodo) 
+  {
     let eachTodoId = "todo" + eachTodo.uniqueNo;
-    if (eachTodoId === todoId) {
+    if (eachTodoId === todoId) 
+    {
       return true;
-    } else {
+    } 
+    else
+    {
       return false;
     }
   });
   todoList.splice(deleteElementIndex, 1);
 }
-function createAndAppendTodo(todo) {
+function createAndAppendTodo(todo) 
+{
   let todoId = "todo" + todo.uniqueNo;
   let checkboxId = "checkbox" + todo.uniqueNo;
   let labelId = "label" + todo.uniqueNo;
@@ -241,7 +280,8 @@ function createAndAppendTodo(todo) {
   inputElement.type = "checkbox";
   inputElement.id = checkboxId;
   inputElement.checked = todo.isChecked;
-  inputElement.onclick = function () {
+  inputElement.onclick = function ()
+  {
     onTodoStatusChange(checkboxId, labelId, todoId);
   };
   inputElement.classList.add("checkbox-input");
@@ -254,7 +294,8 @@ function createAndAppendTodo(todo) {
   labelElement.id = labelId;
   labelElement.classList.add("checkbox-label");
   labelElement.textContent = todo.text;
-  if (todo.isChecked === true) {
+  if (todo.isChecked === true)
+  {
     labelElement.classList.add("checked");
   }
   labelContainer.appendChild(labelElement);
@@ -263,7 +304,8 @@ function createAndAppendTodo(todo) {
   labelContainer.appendChild(deleteIconContainer);
   let deleteIcon = document.createElement("i");
   deleteIcon.classList.add("far", "fa-trash-alt", "delete-icon");
-  deleteIcon.onclick = function () {
+  deleteIcon.onclick = function () 
+  {
     onDeleteTodo(todoId);
   };
   deleteIconContainer.appendChild(deleteIcon);
