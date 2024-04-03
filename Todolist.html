@@ -99,11 +99,8 @@
           background-color: #e6f6ff;
           width: 100%;
           border-style: solid;
-          border-width: 5px;
+          border-width: px;
           border-color: #096f92;
-          border-right: none;
-          border-top: none;
-          border-bottom: none;
           border-radius: 4px;
         }
         
@@ -122,11 +119,6 @@
           font-weight: 400;
           width: 82%;
           margin: 0px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          padding-left: 20px;
-          padding-right: 20px;
-          border-radius: 5px;
         }
         
         .delete-icon-container 
@@ -137,11 +129,18 @@
         
         .delete-icon 
         {
+          color: white;
           background-color: #4c63b6;
-          border: none;
+          font-family: "Roboto";
+          font-size: 18px;
+          border-width: 0px;
           border-radius: 4px;
-          border-width: 5px;
-          color: #e6f6ff;
+          margin-top: 20px;
+          margin-bottom: 50px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-right: 20px;
+          padding-left: 20px;
         }
         
         .checked 
@@ -170,7 +169,6 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Function to add a new to-do item
             function addTodo() {
                 var userInput = document.getElementById("todoUserInput");
                 var inputValue = userInput.value.trim();
@@ -192,14 +190,10 @@
                     alert("Please enter a valid task.");
                 }
             }
-
-            // Function to delete a to-do item
             function deleteTodo() {
                 var listItem = this.closest("li");
                 listItem.remove();
             }
-
-            // Event listener for adding a new to-do item
             document.getElementById("addTodoButton").addEventListener("click", addTodo);
             document.getElementById("todoItemsContainer").addEventListener("click", function(event) {
                 if (event.target.classList.contains("delete-icon")) {
