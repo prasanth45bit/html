@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tic.css">
 </head>
 <body>
-<style>* {
+<style>
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Raleway", sans-serif;
   }
-  body {
+  body 
+  {
     height: 100vh;
     background-color:#d161ff;
   }
-  html {
+  html
+   {
     font-size: 16px;
   }
-  .wrapper {
+  .wrapper
+   {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
   }
-  .container {
+  .container 
+  {
     width: 70vmin;
     height: 70vmin;
     display: flex;
     flex-wrap: wrap;
     gap: 2vmin;
   }
-  .button-option {
+  .button-option
+   {
     background: #ffffff;
     height: 22vmin;
     width: 22vmin;
@@ -42,7 +44,8 @@
     color: #d161ff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   }
-  #restart {
+  #restart 
+  {
     font-size: 1.3em;
     padding: 1em;
     border-radius: 8px;
@@ -53,7 +56,8 @@
     margin: 1.5em auto 0 auto;
     display: block;
   }
-  .popup {
+  .popup 
+  {
     background-color:#5c0cf1;
     height: 100%;
     width: 100%;
@@ -66,7 +70,8 @@
     gap: 1em;
     font-size: 12vmin;
   }
-  #new-game {
+  #new-game
+   {
     font-size: 0.6em;
     padding: 0.5em 1em;
     background-color: #0a0027;
@@ -74,7 +79,8 @@
     border-radius: 0.2em;
     border: none;
   }
-  #message {
+  #message 
+  {
     color: #ffffff;
     text-align: center;
     font-size: 1em;
@@ -101,7 +107,6 @@
        <p id="message">Sample Message</p>
        <button id="new-game">New Game</button>
    </div>
-    <script src="tic.js"></script>
 </body>
 </html>
 <script>let btnRef = document.querySelectorAll(".button-option");
