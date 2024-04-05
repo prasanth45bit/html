@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 </head>
 <body>
 <style>
@@ -12,7 +12,7 @@
   body 
   {
     height: 100vh;
-    background-color:#d161ff;
+    background-color:#410658;
   }
   html
    {
@@ -32,6 +32,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2vmin;
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .container:hover
+  {
+    cursor: pointer;
+    color: aquamarine;
   }
   .button-option
    {
@@ -41,7 +48,7 @@
     border: none;
     border-radius: 30px;
     font-size: 12vmin;
-    color: #d161ff;
+    color: #32075d;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   }
   #restart 
@@ -58,7 +65,7 @@
   }
   .popup 
   {
-    background-color:#5c0cf1;
+    background-color:#410658;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -140,9 +147,9 @@ const enableButtons = () => {
 const winFunction = (letter) => {
   disableButtons();
   if (letter == "X") {
-    msgRef.innerHTML = "Player 'X' Wins";
+    msgRef.innerHTML = "'X' Wins the Game";
   } else {
-    msgRef.innerHTML = "Player 'O' Wins";
+    msgRef.innerHTML = "'O' Wins the Game";
   }
 };
 const drawFunction = () => {
